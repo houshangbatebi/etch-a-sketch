@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.createElement('div')
-    container.classList.add('container')
     
     // Create 16x16 grid of square divs
     for (let i = 1; i <= 16; i++) {
@@ -31,18 +30,4 @@ document.addEventListener('DOMContentLoaded', () => {
             touchedSquare.style.backgroundColor = 'black'
         })
     })
-
-
-    console.log(squares[0].offsetWidth)
-    console.log(squares[0].offsetHeight)
-    // Grid size button click event handling
-    const button = document.querySelector('#size-button')
-    button.addEventListener('click', () => {
-        let size = 16;
-        do {
-            // Get the size from user. Grid size must be a positive number between 1 and 100
-            size = prompt('Grid Size? (Enter a positive number lower than or equal to 100)')
-        } while ((size < 1) || (size > 100))
-    })
-
 })
