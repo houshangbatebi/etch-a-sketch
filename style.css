@@ -1,0 +1,13 @@
+.flex-container {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.flex-item {
+    flex: 0 0 auto;
+    width: 80px;
+    height: 80px;
+    background-color: #ffef96;
+    border: 1px solid #50394c;
+}
