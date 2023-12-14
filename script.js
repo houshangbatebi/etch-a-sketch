@@ -3,7 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Create 16*16 grid of square divs
     createGrid(16)
 
-    
+    // Color list for colorful mode
+    colors = ['#A349A4', '#3F48CC', '#00A2E8', '#22B14C', '#FFF200', '#FF7F27', '#ED1C24',
+              '#880015', '#C8BFE7', '#7092BE', '#99D9EA', '#B5E61D', '#EFE4B0', '#FFC90E',
+              '#FFAEC9', '#B97A57']
+    let colorMode = 0  // Color mode is black/white by default
+
     // Grid size change event handling
     // Update the displayed size when the user slides the input range
     const sizeRange = document.querySelector('#size-range')
@@ -17,6 +22,14 @@ document.addEventListener('DOMContentLoaded', () => {
         let newSize = sizeRange.value
         sizeShow.textContent = newSize
         createGrid(newSize)
+    })
+
+    // Handle color mode change event
+    const colorModeButtons = document.querySelectorAll('input[name = mode]')
+    colorModeButtons.forEach((button) => {
+        button.addEventListener('change', (event)=>{
+            colorMode = event.target.value
+        })
     })
 
     function createGrid(size) {
@@ -52,7 +65,15 @@ document.addEventListener('DOMContentLoaded', () => {
             square.addEventListener('mouseenter', (event) => {
                 // Change the background color of this square to black
                 const touchedSquare = event.target
-                touchedSquare.style.backgroundColor = 'black'
+                if (colorMode == 0) {
+                    // Color mode is B/W
+                    touchedSquare.style.backgroundColor = 'black'  
+                }
+                else {
+                    // Color mode is colorful
+                    let randomColor = colors[Math.floor(Math.random() * colors.length)]
+                    touchedSquare.style.backgroundColor = randomColor
+                }
             })
         })   
     }
