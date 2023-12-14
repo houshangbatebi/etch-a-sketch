@@ -1,15 +1,17 @@
 .container {
     width: 960px;
+    margin: 0 auto;
 }
 
 .flex-container {
     display: flex;
+    height: 60px; /* This is the default height size for the 16x16 grid. For different grid size, the height of flex-container will be adjusted by JS script to make the flex-items square */
 }
 
 .flex-item {
     box-sizing: border-box; /* border-box tells the browser to account for any border and padding in the values you specify for an element's width and height */
-    flex: 1 0 auto;
-    height: 60px;
+    flex: 1 0 auto; 
+    height: auto;   /* It means that the height of flex items will be equal to the height of flex container. flex-container height will be set by JS script */
     border: 1px solid #b2b2b2;
     margin: 0;
 }
@@ -21,11 +23,15 @@
     padding: 8px 16px;
     font-weight: bold;
     font-size: 26px;
-    margin: 10px auto;
+    margin: 30px auto;
     border-radius: 10px;
 }
 
 #size-button:hover {
     background-color: white;
     color: rgb(14, 170, 209);
+}
+
+body {
+    text-align: center
 }
