@@ -8,7 +8,27 @@
     <script src="script.js"></script>
 </head>
 <body>
-    <button id="size-button">Grid Size</button>
+    <h1>Etch-a-Sketch</h1>
+    <fieldset class="control-container">
+        <legend style="padding: 0 5px;">Setting</legend>
+        <div class="setting-flex-item">
+            <span>Mode:</span>
+            <div>
+                <input type="radio" name="mode" id="blackWhite" value="bw" checked>
+                <label for="blackWhite">B/W</label>
+            </div>
+            <div>
+                <input type="radio" name="mode" id="colorful" value="colorful">
+                <label for="colorful">Colorful</label>
+            </div>
+        </div>
+        <div class="setting-flex-item">
+            <span>Size:</span>
+            <input type="range" min="1" max="64" name="size" value="16" id="size-range">
+            <span id="live-size-show">16</span>
+        </div>
+    </fieldset>
+    
     <div class="container"></div>
 </body>
 </html>

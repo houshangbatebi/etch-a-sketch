@@ -3,18 +3,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // Create 16*16 grid of square divs
     createGrid(16)
 
-    // Grid size button click event handling
-    const button = document.querySelector('#size-button')
-    button.addEventListener('click', () => {
-        let size = 16;
-        do {
-            // Get the size from user. Grid size must be a positive number between 1 and 100
-            size = Number(prompt('Grid Size? (Enter a positive number less than or equal to 100)'))
-        } while (isNaN(size) || (size < 1) || (size > 100))
-       // Create size*size grid
-        createGrid(size)
+    
+    // Grid size change event handling
+    // Update the displayed size when the user slides the input range
+    const sizeRange = document.querySelector('#size-range')
+    const sizeShow = document.querySelector('#live-size-show')
+    sizeRange.addEventListener('input', () => {
+        sizeShow.textContent = sizeRange.value
     })
-
+    // Create grid with new size when the user actually changed the input
+    sizeRange.addEventListener('change', () => {
+        // Note that this event handler is executed only when the user releases the slider on the new value
+        let newSize = sizeRange.value
+        sizeShow.textContent = newSize
+        createGrid(newSize)
+    })
 
     function createGrid(size) {
         // Remove current grid
