@@ -44,3 +44,23 @@ body {
     gap: 8px;
 }
 
+.page-heading {
+    color: #7b6500;
+}
+
+footer {
+    margin-top: 10px;
+}
+
+.footer-link {
+    text-decoration: none;
+}
+
+.footer-link:visited {
+    color: black;
+}
+
+.footer-link:hover {
+    color: #7b6500;
+    text-decoration: underline;
+}
